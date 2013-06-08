@@ -23,10 +23,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
     $.extend($.fn, {
         /**
-         *  maskUnmaskPassword
-         *  @param  
-         *      options     a dictionary.        
-         **/
+         *      @method maskUnmaskPassword
+         *      @param  options {Object}    Optional      
+         */
         maskUnmaskPassword: function( options ) {
             var $password_field = $( this );
             
@@ -75,18 +74,17 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     };
 
     /**
-     * init
-     * @param 
-     *      obj         a dom object.
-     *      settings    a dictionary.
+     *      @method init
+     *      @param  password_field  {Object}
+     *      @param  settings    {Object}
      */
-    function init( obj, settings ) {
-        obj.css({
+    function init( password_field, settings ) {
+        password_field.css({
             background: "url('" + settings.images_path + "/open_eye.png') no-repeat right center transparent"
         });
         if( settings.help ) {
             settings.help_text = settings.help_text_at !== "bottom" ? settings.help_text : "<br>" + settings.help_text;
-            obj.after( $( "<span>", {text: settings.help_text, class: settings.help_text_cls }));
+            password_field.after( $( "<span>", {text: settings.help_text, class: settings.help_text_cls }));
         }
     }
 
