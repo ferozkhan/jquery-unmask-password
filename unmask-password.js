@@ -31,7 +31,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             
             // updating pluging settings by merging default settings
             // with user settings. 
-            var settings = $.extend( true, {}, $.fn.maskUnmaskPassword.default, options );
+            var settings = $.extend( true, {}, $.fn.maskUnmaskPassword.default_options, options );
             
             // applying plugin to input field.  
             init($password_field, settings);
@@ -65,7 +65,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     /**
      * Plugin default settings
      **/
-    $.fn.maskUnmaskPassword.default = {
+    $.fn.maskUnmaskPassword.default_options = {
         help: false,
         help_text: "Click on eye to mask/unmask password",
         help_text_at: "bottom",
