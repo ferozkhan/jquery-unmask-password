@@ -39,13 +39,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             // To fake a click on mask icon, since its a background, click position need
             // to be calculated. In the below line we can say 8 is mask icon width.
             $password_field.on( "click", function( evt ) {
-                var click_area = $password_field.width() - 8;
-                if( evt.clientX > click_area ) {
+                if( evt.offsetX > 205 ) {
                     $password_field.attr("type", function() {
                         var type = $password_field.attr("type") === "password" ? "text" : "password";
-                        var mask = $password_field.attr("type") === "password" ? "close_eye.png" : "open_eye.png";
+                        var mask = $password_field.attr("type") === "password" ? settings.lock_icon : settings.unlock_icon;
                         $password_field.css({
-                            background: "url('" + settings.images_path + "/" + mask + "') no-repeat right center transparent"
+                            background: "url('" + mask +  "') no-repeat right center transparent"
                         });
 
                         return type;
@@ -56,8 +55,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             // Switching cursor style based on area it is moving inside
             // password field.
             $password_field.on( "mousemove", function( evt ) {
-                var click_area = $password_field.width() - 8;
-                $password_field.css( "cursor", evt.clientX > click_area ? "pointer" : "inherit" );
+                $password_field.css( "cursor", evt.offsetX > 205 ? "pointer" : "inherit" );
             });
         }
     });
@@ -66,11 +64,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      * Plugin default settings
      **/
     $.fn.maskUnmaskPassword.default_options = {
-        help: false,
-        help_text: "Click on eye to mask/unmask password",
-        help_text_at: "bottom",
-        help_text_cls: "help_text",
-        images_path: "images"
+        unlock_icon: "https://s3-ap-southeast-1.amazonaws.com/0images/open_eye.png",
+        lock_icon: "https://s3-ap-southeast-1.amazonaws.com/0images/close_eye.png"
     };
 
     /**
@@ -80,12 +75,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      */
     function init( password_field, settings ) {
         password_field.css({
-            background: "url('" + settings.images_path + "/open_eye.png') no-repeat right center transparent"
+            background: "url('" + settings.unlock_icon + "') no-repeat right center transparent"
         });
-        if( settings.help ) {
-            settings.help_text = settings.help_text_at !== "bottom" ? settings.help_text : "<br>" + settings.help_text;
-            password_field.after( $( "<span>", {text: settings.help_text, class: settings.help_text_cls }));
-        }
     }
 
 }(jQuery));
