@@ -1,0 +1,31 @@
+{
+    "name": "unmask-password",
+    "title": "Unmask Password",
+    "description": "jQuery plugin to mask/unmask password",
+    "keywords": [
+        "unmask",
+        "password"
+    ],
+    "version": "1.0",
+    "author": {
+        "name": "Feroz khan"
+    },
+    "maintainers": [
+        {
+            "name": "Feroz Khan",
+            "email": "ferozkhan27@gmail.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/ferozkhan/jquery-unmask-password/blob/master/unmask-password.js"
+        }
+    ],
+    "bugs": "https://github.com/ferozkhan/jquery-unmask-password/issues",
+    "homepage": "https://github.com/ferozkhan/jquery-unmask-password",
+    "demo": "http://ferozkhan.net/unmask/",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
