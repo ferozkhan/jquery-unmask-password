@@ -1,6 +1,8 @@
 jquery-unmask-password
 ======================
 
-Try:
+Demo
 
 http://ferozkhan.net/unmask/
+
+
